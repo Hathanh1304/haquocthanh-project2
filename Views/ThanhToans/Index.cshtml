@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PROJECT2.Models.ThanhToan>
+
+@{
+    ViewBag.Title = "Thanh Toan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thanh Toan</h2>
+
+<p>
+    @*Html.ActionLink("Create New", "Create")*@
+</p>
+<a href="/ThanhToans/create" class="btn btn-primary my-3"> Them moi</a>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhuongThucThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatVe.TrangThai)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhuongThucThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatVe.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaThanhToan }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaThanhToan }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaThanhToan })
+            </td>
+        </tr>
+    }
+
+</table>

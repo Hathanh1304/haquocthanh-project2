@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PROJECT2.Models.DatVe>
+
+@{
+    ViewBag.Title = "Danh muc san pham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sach ve</h2>
+
+<p>
+    @*Html.ActionLink("Create New", "Create")*@
+</p>
+<a href="/DatVes/create" class="btn btn-primary my-3"> Them moi</a>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuongVe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChuyenBay.SoHieuChuyenBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KhachHang.HoVaTen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongVe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChuyenBay.SoHieuChuyenBay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhachHang.HoVaTen)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaDatVe }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaDatVe }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaDatVe })
+        </td>
+    </tr>
+}
+
+</table>
